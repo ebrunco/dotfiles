@@ -7,33 +7,28 @@ Customizations include rofi themes, waybar style, and various scripts.
 
 1. Install Arch base system
 
-2. Install stow:
-   ```bash
-   sudo pacman -S stow
-   ```
-
-3. Clone this repo:
+2. Clone this repo:
    ```bash
    git clone https://github.com/ebrunco/dotfiles.git ~/dotfiles
    ```
 
-4. Install packages from the saved package list:
+3. Install packages from the saved package list:
    ```bash
    sudo pacman -S --needed - < ~/dotfiles/packages.txt
    ```
 
-5. Remove any default configs that may already exist:
+4. Remove any default configs that may already exist:
    ```bash
    rm -rf ~/.config/hypr ~/.config/waybar ~/.config/rofi ~/.config/kitty ~/.config/swaync
    ```
 
-6. Stow configs:
+5. Stow configs:
    ```bash
    cd ~/dotfiles
    stow hypr waybar rofi kitty swaync
    ```
 
-7. Copy wallpapers to `~/Pictures/wallpapers`
+6. Copy wallpapers to `~/Pictures/wallpapers`
 
 ## Notes
 - `packages.txt` contains all explicitly installed packages at time of export — not just Hyprland dependencies
