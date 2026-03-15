@@ -1,0 +1,145 @@
+/**
+ * rofi-dark-accent-wallpaper.rasi
+ * Same colors as rofi-dark-accent but with grid layout for wallpaper picker
+ * Usage: set rofi_theme="$HOME/.config/rofi/themes/rofi-dark-accent-wallpaper.rasi"
+ * in your wallpaper select script
+ **/
+
+configuration {
+    show-icons:                 true;
+    icon-theme:                 "hicolor";
+}
+
+* {
+    background-colour:           #1a1a1a;
+    alternate-background:        #242424;
+    foreground-colour:           #e0e0e0;
+    border-colour:               #808080;
+    handle-colour:               #808080;
+    normal-background:           #1a1a1a;
+    normal-foreground:           #e0e0e0;
+    urgent-background:           #cc6666;
+    urgent-foreground:           #1a1a1a;
+    active-background:           #808080;
+    active-foreground:           #ffffff;
+    selected-normal-background:  #808080;
+    selected-normal-foreground:  #ffffff;
+    selected-urgent-background:  #808080;
+    selected-urgent-foreground:  #1a1a1a;
+    selected-active-background:  #cc6666;
+    selected-active-foreground:  #1a1a1a;
+    alternate-normal-background: #1a1a1a;
+    alternate-normal-foreground: #e0e0e0;
+    alternate-urgent-background: #cc6666;
+    alternate-urgent-foreground: #1a1a1a;
+    alternate-active-background: #808080;
+    alternate-active-foreground: #ffffff;
+    font:                        "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       75%;
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      1px solid;
+    border-radius:               12px;
+    border-color:                @border-colour;
+    cursor:                      "default";
+    background-color:            @background-colour;
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     8px;
+    padding:                     20px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:                     true;
+    spacing:                     8px;
+    padding:                     8px 12px;
+    border:                      1px solid;
+    border-radius:               8px;
+    border-color:                @border-colour;
+    background-color:            @alternate-background;
+    text-color:                  @foreground-colour;
+    children:                    [ "entry" ];
+}
+
+entry {
+    enabled:                     true;
+    expand:                      true;
+    background-color:            inherit;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "🎞️  Search / Choose Wallpaper";
+    placeholder-color:           #606060;
+    horizontal-align:            0.5;
+}
+
+listview {
+    enabled:                     true;
+    columns:                     6;
+    lines:                       2;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    flow:                        horizontal;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     20px;
+    padding:                     10px;
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+    cursor:                      "default";
+}
+
+element {
+    enabled:                     true;
+    orientation:                 vertical;
+    spacing:                     0px;
+    padding:                     0px;
+    margin:                      0px;
+    border-radius:               10px;
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+    cursor:                      pointer;
+}
+element normal.normal   { background-color: transparent;                  text-color: @normal-foreground; }
+element selected.normal { background-color: @selected-normal-background;  text-color: @selected-normal-foreground; }
+element alternate.normal{ background-color: transparent;                  text-color: @alternate-normal-foreground; }
+
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        10%;
+    margin:                      -30px;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    padding:                     6px;
+    margin:                      6px;
+}
+
+mode-switcher { enabled: false; }
+message       { enabled: false; }
+error-message {
+    padding:                     10px;
+    border-radius:               8px;
+    background-color:            @background-colour;
+    text-color:                  @foreground-colour;
+}

@@ -1,0 +1,52 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+
+{
+"include": [
+  "$HOME/.config/waybar/Modules",
+  "$HOME/.config/waybar/ModulesWorkspaces",
+  "$HOME/.config/waybar/ModulesCustom",
+  "$HOME/.config/waybar/ModulesGroups",
+  "$HOME/.config/waybar/UserModules",
+  ],
+"layer": "top", 
+"position": "top", 
+//"mode": "dock",
+"exclusive": true,
+"passthrough": false,
+"gtk-layer-shell": true,
+"margin-left": 6,
+"margin-right": 6,
+"margin-top": 2,
+
+"modules-left": [	
+	"idle_inhibitor", 
+	"hyprland/workspaces",
+	"custom/separator#line",
+	"network#speed",
+	"custom/separator#line",
+	"tray",
+	//"mpris", 
+	"custom/weather"
+	],
+    
+"modules-center": [
+	"clock",
+	"custom/swaync",
+	"custom/playerctl",
+	"custom/cycle_wall"
+	],
+    
+"modules-right": [
+	"custom/hyprpicker",
+	"custom/separator#line",
+	"temperature",
+ 	"cpu",
+	"memory",
+	"disk",
+	"custom/separator#line",
+	"group/audio", 
+	"custom/nightlight",
+	"custom/power"
+	],
+}
+
