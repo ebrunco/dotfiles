@@ -19,7 +19,7 @@ Customizations include rofi themes, waybar style, and various scripts.
 
 4. Install packages from the saved package list:
    ```bash
-   sudo pacman -S - < ~/dotfiles/packages.txt
+   sudo pacman -S --needed - < ~/dotfiles/packages.txt
    ```
 
 5. Remove any default configs that may already exist:
