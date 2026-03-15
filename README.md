@@ -28,7 +28,8 @@ Customizations include rofi themes, waybar style, and various scripts.
    stow hypr waybar rofi kitty swaync
    ```
 
-6. Copy wallpapers to `~/Pictures/wallpapers`
+6. Copy wallpapers to `mkdir -p ~/Pictures/wallpapers
+cp -r ~/dotfiles/wallpapers/* ~/Pictures/wallpapers/`
 
 ## Notes
 - `packages.txt` contains all explicitly installed packages at time of export — not just Hyprland dependencies
