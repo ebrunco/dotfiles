@@ -43,5 +43,4 @@ Customizations include rofi themes, waybar style, and various scripts.
   git commit -m "update package list"
   git push
   ```
-- Wallpapers are not included in this repo (too large) — back them up separately
 - Script permissions are preserved by git (saved as 755) so `chmod +x` should not be needed
