@@ -80,8 +80,8 @@ original_rofi_config_content_backup=$(cat "$ROFI_CONFIG_FILE")
 
 # Generate a sorted list of available theme file names
 mapfile -t available_theme_names < <((
-  find "$ROFI_THEMES_DIR_CONFIG" -maxdepth 1 -name "*.rasi" -type f -printf "%f\n" 2>/dev/null
-  find "$ROFI_THEMES_DIR_LOCAL" -maxdepth 1 -name "*.rasi" -type f -printf "%f\n" 2>/dev/null
+  find -L "$ROFI_THEMES_DIR_CONFIG" -maxdepth 1 -name "*.rasi" -type f -printf "%f\n" 2>/dev/null
+  find -L "$ROFI_THEMES_DIR_LOCAL" -maxdepth 1 -name "*.rasi" -type f -printf "%f\n" 2>/dev/null
 ) | sort -V -u)
 
 if [ ${#available_theme_names[@]} -eq 0 ]; then
