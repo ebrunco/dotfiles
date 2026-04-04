@@ -12,7 +12,7 @@ wallpaper_current="$HOME/.config/hypr/wallpaper_effects/.wallpaper_current"
 iDIR="$HOME/.config/swaync/images"
 iDIRi="$HOME/.config/swaync/icons"
 
-# swww transition config
+# awww transition config
 FPS=60
 TYPE="any"
 DURATION=1
@@ -45,7 +45,7 @@ rofi_override="element-icon{size:${adjusted_icon_size}%;}"
 
 # Kill functions
 kill_wallpaper_for_video() {
-  swww kill 2>/dev/null
+  awww kill 2>/dev/null
   pkill mpvpaper 2>/dev/null
   pkill swaybg 2>/dev/null
   pkill hyprpaper 2>/dev/null
@@ -114,20 +114,20 @@ modify_startup_config() {
   local selected_file="$1"
   local startup_config="$HOME/.config/hypr/UserConfigs/Startup_Apps.conf"
   if [[ "$selected_file" =~ \.(mp4|mkv|mov|webm)$ ]]; then
-    sed -i '/^\s*exec-once\s*=\s*swww-daemon\s*--format\s*xrgb\s*$/s/^/\#/' "$startup_config"
+    sed -i '/^\s*exec-once\s*=\s*awww-daemon\s*--format\s*xrgb\s*$/s/^/\#/' "$startup_config"
     sed -i '/^\s*#\s*exec-once\s*=\s*mpvpaper\s*.*$/s/^#\s*//;' "$startup_config"
     local config_path="${selected_file/#$HOME/\$HOME}"
     sed -i "s|^\$livewallpaper=.*|\$livewallpaper=\"$config_path\"|" "$startup_config"
   else
-    sed -i '/^\s*#\s*exec-once\s*=\s*swww-daemon\s*--format\s*xrgb\s*$/s/^\s*#\s*//;' "$startup_config"
+    sed -i '/^\s*#\s*exec-once\s*=\s*awww-daemon\s*--format\s*xrgb\s*$/s/^\s*#\s*//;' "$startup_config"
     sed -i '/^\s*exec-once\s*=\s*mpvpaper\s*.*$/s/^/\#/' "$startup_config"
   fi
 }
 
 apply_image_wallpaper() {
   kill_wallpaper_for_image
-  pgrep -x "swww-daemon" >/dev/null || swww-daemon --format xrgb &
-  swww img -o "$focused_monitor" "$1" $SWWW_PARAMS
+  pgrep -x "awww-daemon" >/dev/null || awww-daemon --format xrgb &
+  awww img -o "$focused_monitor" "$1" $SWWW_PARAMS
   "$SCRIPTSDIR/WallustSwww.sh" "$1"
   sleep 2
   "$SCRIPTSDIR/Refresh.sh"
