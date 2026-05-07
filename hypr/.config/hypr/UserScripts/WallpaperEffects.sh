@@ -14,12 +14,7 @@ rofi_theme="$HOME/.config/rofi/config-wallpaper-effect.rasi"
 iDIR="$HOME/.config/swaync/images"
 iDIRi="$HOME/.config/swaync/icons"
 
-# awww transition config
-FPS=60
-TYPE="wipe"
-DURATION=2
-BEZIER=".43,1.19,1,.4"
-SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION --transition-bezier $BEZIER"
+SWWW_PARAMS="--transition-type none"
 
 # Define ImageMagick effects
 declare -A effects=(
@@ -45,14 +40,7 @@ declare -A effects=(
 
 # Function to apply no effects
 no-effects() {
-    awww img -o "$focused_monitor" "$wallpaper_current" $SWWW_PARAMS &&
-    wait $!
-    wallust run "$wallpaper_current" -s &&
-    wait $!
-    # Refresh rofi, waybar, wallust palettes
-	sleep 2
-	"$SCRIPTSDIR/Refresh.sh"
-
+    awww img -o "$focused_monitor" "$wallpaper_current" $SWWW_PARAMS
     notify-send -u low -i "$iDIR/ja.png" "No wallpaper" "effects applied"
     # copying wallpaper for rofi menu
     cp "$wallpaper_current" "$wallpaper_output"
@@ -82,15 +70,7 @@ main() {
             killall -SIGUSR1 "$pid"
             done
 
-            sleep 1
-            awww img -o "$focused_monitor" "$wallpaper_output" $SWWW_PARAMS &
-
-            sleep 2
-  
-            wallust run "$wallpaper_output" -s &
-            sleep 1
-            # Refresh rofi, waybar, wallust palettes
-            "${SCRIPTSDIR}/Refresh.sh"
+            awww img -o "$focused_monitor" "$wallpaper_output" $SWWW_PARAMS
             notify-send -u low -i "$iDIR/ja.png" "$choice" "effects applied"
         else
             echo "Effect '$choice' not recognized."

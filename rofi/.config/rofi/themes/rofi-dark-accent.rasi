@@ -60,7 +60,7 @@ mainbox {
     spacing:                     8px;
     padding:                     20px;
     background-color:            transparent;
-    children:                    [ "inputbar", "listview", "mode-switcher" ];
+    children:                    [ "inputbar", "listview" ];
 }
 
 inputbar {
@@ -125,7 +125,7 @@ element-icon { background-color: transparent; text-color: inherit; size: 24px; c
 element-text { background-color: transparent; text-color: inherit; highlight: inherit; cursor: inherit; vertical-align: 0.5; horizontal-align: 0.0; }
 
 mode-switcher {
-    enabled:                     true;
+    enabled:                     false;
     spacing:                     8px;
     background-color:            transparent;
     text-color:                  @foreground-colour;

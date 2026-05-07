@@ -1,145 +1,134 @@
-/**
- * rofi-dark-accent-wallpaper.rasi
- * Same colors as rofi-dark-accent but with grid layout for wallpaper picker
- * Usage: set rofi_theme="$HOME/.config/rofi/themes/rofi-dark-accent-wallpaper.rasi"
- * in your wallpaper select script
- **/
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+/* Wallpaper selector — card thumbnails, Catppuccin Mocha */
 
 configuration {
-    show-icons:                 true;
-    icon-theme:                 "hicolor";
+    show-icons:          true;
+    display-drun:        "";
+    drun-display-format: "{name}";
 }
 
 * {
-    background-colour:           #1a1a1a;
-    alternate-background:        #242424;
-    foreground-colour:           #e0e0e0;
-    border-colour:               #808080;
-    handle-colour:               #808080;
-    normal-background:           #1a1a1a;
-    normal-foreground:           #e0e0e0;
-    urgent-background:           #cc6666;
-    urgent-foreground:           #1a1a1a;
-    active-background:           #808080;
-    active-foreground:           #ffffff;
-    selected-normal-background:  #808080;
-    selected-normal-foreground:  #ffffff;
-    selected-urgent-background:  #808080;
-    selected-urgent-foreground:  #1a1a1a;
-    selected-active-background:  #cc6666;
-    selected-active-foreground:  #1a1a1a;
-    alternate-normal-background: #1a1a1a;
-    alternate-normal-foreground: #e0e0e0;
-    alternate-urgent-background: #cc6666;
-    alternate-urgent-foreground: #1a1a1a;
-    alternate-active-background: #808080;
-    alternate-active-foreground: #ffffff;
-    font:                        "JetBrainsMono Nerd Font 11";
+    BG:  #1e1e2eff;
+    BGA: #cba6f7ff;
+    FG:  #cdd6f4ff;
+    BDR: #cba6f7ff;
+    SEL: #11111bff;
+    SRF: #313244ff;
+    OVR: #7f849cff;
+    CRD: #181825ff;
+    font: "JetBrainsMono Nerd Font 11";
 }
 
 window {
-    transparency:                "real";
-    location:                    center;
-    anchor:                      center;
-    fullscreen:                  false;
-    width:                       75%;
-    enabled:                     true;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      1px solid;
-    border-radius:               12px;
-    border-color:                @border-colour;
-    cursor:                      "default";
-    background-color:            @background-colour;
+    transparency:     "real";
+    background-color: @BG;
+    text-color:       @FG;
+    border:           2px solid;
+    border-color:     @BDR;
+    border-radius:    12px;
+    width:            60%;
+    height:           75%;
+    anchor:           center;
+    x-offset:         0;
+    y-offset:         0;
 }
 
 mainbox {
-    enabled:                     true;
-    spacing:                     8px;
-    padding:                     20px;
-    background-color:            transparent;
-    children:                    [ "inputbar", "listview" ];
+    background-color: @BG;
+    spacing:          10px;
+    padding:          15px;
+    children:         [ inputbar, listview ];
 }
 
 inputbar {
-    enabled:                     true;
-    spacing:                     8px;
-    padding:                     8px 12px;
-    border:                      1px solid;
-    border-radius:               8px;
-    border-color:                @border-colour;
-    background-color:            @alternate-background;
-    text-color:                  @foreground-colour;
-    children:                    [ "entry" ];
+    children:         [ entry ];
+    background-color: @SRF;
+    text-color:       @FG;
+    border:           0px 0px 2px 0px;
+    border-color:     @BDR;
+    border-radius:    8px;
+    padding:          8px 12px;
 }
 
 entry {
-    enabled:                     true;
-    expand:                      true;
-    background-color:            inherit;
-    text-color:                  inherit;
-    cursor:                      text;
-    placeholder:                 "🎞️  Search / Choose Wallpaper";
-    placeholder-color:           #606060;
-    horizontal-align:            0.5;
+    background-color: transparent;
+    text-color:       @FG;
+    placeholder-color: @OVR;
+    expand:           true;
+    horizontal-align: 0;
+    placeholder:      "Search wallpapers...";
+    blink:            true;
 }
 
 listview {
-    enabled:                     true;
-    columns:                     6;
-    lines:                       2;
-    cycle:                       true;
-    dynamic:                     true;
-    scrollbar:                   false;
-    layout:                      vertical;
-    flow:                        horizontal;
-    reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
-    spacing:                     20px;
-    padding:                     10px;
-    background-color:            transparent;
-    text-color:                  @foreground-colour;
-    cursor:                      "default";
+    background-color: @BG;
+    columns:          1;
+    lines:            6;
+    spacing:          6px;
+    cycle:            true;
+    dynamic:          true;
+    scrollbar:        true;
+    layout:           vertical;
+    fixed-height:     true;
+    fixed-columns:    true;
 }
 
-element {
-    enabled:                     true;
-    orientation:                 vertical;
-    spacing:                     0px;
-    padding:                     0px;
-    margin:                      0px;
-    border-radius:               10px;
-    background-color:            transparent;
-    text-color:                  @foreground-colour;
-    cursor:                      pointer;
+scrollbar {
+    border:           0px;
+    border-radius:    4px;
+    background-color: @SRF;
+    handle-color:     @BGA;
+    handle-width:     4px;
+    padding:          0;
 }
-element normal.normal   { background-color: transparent;                  text-color: @normal-foreground; }
-element selected.normal { background-color: @selected-normal-background;  text-color: @selected-normal-foreground; }
-element alternate.normal{ background-color: transparent;                  text-color: @alternate-normal-foreground; }
+
+/* Regular selectable entries — card style */
+element {
+    background-color: @CRD;
+    text-color:       @FG;
+    orientation:      horizontal;
+    border-radius:    10px;
+    border:           1px solid;
+    border-color:     @SRF;
+    padding:          8px 12px;
+    cursor:           pointer;
+    spacing:          14px;
+}
+
+element selected {
+    background-color: @SRF;
+    border-color:     @BGA;
+    text-color:       @FG;
+}
+
+/* Non-selectable section headers — flush, accent underline */
+element normal.normal {
+    background-color: @CRD;
+    text-color:       @FG;
+}
 
 element-icon {
-    background-color:            transparent;
-    text-color:                  inherit;
-    size:                        10%;
-    margin:                      -30px;
-    cursor:                      inherit;
-}
-element-text {
-    background-color:            transparent;
-    text-color:                  inherit;
-    cursor:                      inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
-    padding:                     6px;
-    margin:                      6px;
+    background-color: transparent;
+    text-color:       inherit;
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+    size:             80px;
+    border:           0px;
+    border-radius:    6px;
 }
 
-mode-switcher { enabled: false; }
-message       { enabled: false; }
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    expand:           true;
+    horizontal-align: 0;
+    vertical-align:   0.5;
+}
+
+message { enabled: false; }
 error-message {
-    padding:                     10px;
-    border-radius:               8px;
-    background-color:            @background-colour;
-    text-color:                  @foreground-colour;
+    padding:          10px;
+    border-radius:    8px;
+    background-color: @BG;
+    text-color:       @FG;
 }

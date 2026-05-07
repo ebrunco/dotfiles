@@ -11,20 +11,5 @@ PICS=($(find -L ${wallDIR} -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "
 RANDOMPICS=${PICS[ $RANDOM % ${#PICS[@]} ]}
 
 
-# Transition config
-FPS=30
-TYPE="random"
-DURATION=1
-BEZIER=".43,1.19,1,.4"
-SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION --transition-bezier $BEZIER"
-
-
-awww query || awww-daemon --format xrgb && awww img -o $focused_monitor ${RANDOMPICS} $SWWW_PARAMS
-
-wait $!
-"$SCRIPTSDIR/WallustSwww.sh" &&
-
-wait $!
-sleep 2
-"$SCRIPTSDIR/Refresh.sh"
+awww query || awww-daemon --format xrgb && awww img -o $focused_monitor ${RANDOMPICS} --transition-type none
 

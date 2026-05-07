@@ -17,9 +17,7 @@ if [[ $# -lt 1 ]] || [[ ! -d $1   ]]; then
 	exit 1
 fi
 
-# Edit below to control the images transition
-export SWWW_TRANSITION_FPS=60
-export SWWW_TRANSITION_TYPE=simple
+export SWWW_TRANSITION_TYPE=none
 
 # This controls (in seconds) when to switch to the next image
 INTERVAL=1800
@@ -32,9 +30,6 @@ while true; do
 		| sort -n | cut -d':' -f2- \
 		| while read -r img; do
 			awww img -o $focused_monitor "$img"
-			# Regenerate colors from the exact image path to avoid cache races
-			$HOME/.config/hypr/scripts/WallustSwww.sh "$img"
-			# Refresh UI components that depend on wallust output
 			$wallust_refresh
 			sleep $INTERVAL
 			

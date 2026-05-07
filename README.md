@@ -8,11 +8,11 @@ Customizations include rofi themes, waybar style, and various scripts.
 ```bash
    git clone https://github.com/ebrunco/dotfiles.git ~/dotfiles
 ```
-3. Install packages from the saved package list:
+3. Confirm system has necessary packages (e.g. kitty, hypr, waybar, swaync, rofi, etc)
 ```bash
-   sudo pacman -S --needed - < ~/dotfiles/packages.txt
+   sudo pacman -S --needed - <packageNames>
 ```
-4. Remove any default configs that may already exist:
+4. Remove any default configs that may already exist or create backups
 ```bash
    rm -rf ~/.config/hypr ~/.config/waybar ~/.config/rofi ~/.config/kitty ~/.config/swaync ~/Pictures/wallpapers
 ```
@@ -23,20 +23,4 @@ Customizations include rofi themes, waybar style, and various scripts.
 ```
 
 ## Notes
-- `packages.txt` contains all explicitly installed packages at time of export — not just Hyprland dependencies
-- Update and push `packages.txt` before setting up on a new machine:
-```bash
-  pacman -Qe > ~/dotfiles/packages.txt
-  git add ~/dotfiles/packages.txt
-  git commit -m "update package list"
-  git push
-```
-- To update wallpapers, add/remove files in `~/Pictures/wallpapers/` then:
-```bash
-  cd ~/dotfiles
-  git add .
-  git commit -m "update wallpapers"
-  git push
-```
-- Similar process for updating other configs
 - Script permissions are preserved by git (saved as 755) so `chmod +x` should not be needed

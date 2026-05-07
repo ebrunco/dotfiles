@@ -6,6 +6,7 @@
 /* ---- Configuration ---- */ 
 configuration {
   modi: "drun";
+  show-icons: true;
 }
 
 window {
@@ -52,6 +53,9 @@ element {
 
 element selected.normal {
   background-color: transparent;
+  border: 3px solid;
+  border-color: #cba6f7;
+  border-radius: 10px;
 }
 
 element-icon {

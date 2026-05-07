@@ -235,8 +235,6 @@ set_custom_gtk_theme "$next_mode"
 update_theme_mode
 
 
-${SCRIPTSDIR}/WallustSwww.sh &&
-
 sleep 2
 # kill process
 for pid1 in waybar rofi swaync ags swaybg; do
