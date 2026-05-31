@@ -81,6 +81,7 @@ apply_image_wallpaper() {
   pgrep -x "awww-daemon" >/dev/null || awww-daemon --format xrgb &
   awww img -o "$focused_monitor" "$1" $SWWW_PARAMS
   ln -sf "$1" "$HOME/.config/rofi/.current_wallpaper"
+  cp "$1" "$HOME/.config/hypr/wallpaper_effects/.wallpaper_current"
 }
 
 apply_video_wallpaper() {
