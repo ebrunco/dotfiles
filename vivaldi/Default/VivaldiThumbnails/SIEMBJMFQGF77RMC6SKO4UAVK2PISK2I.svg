@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
+  <g transform="translate(6,6)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    
+    <polygon points="4.5,4 5.5,1 10.5,1 11.5,4" stroke="#8E939C"></polygon>
+    
+    <polygon points="1,4 15,4 15,15 1,15" stroke="#E6E8EB"></polygon>
+    
+    <polyline points="10.5,7.5 10.5,11.5 5.5,11.5" stroke="#A97863"></polyline>
+    <polyline points="7,10 5.5,11.5 7,13" stroke="#A97863"></polyline>
+  </g>
+</svg>

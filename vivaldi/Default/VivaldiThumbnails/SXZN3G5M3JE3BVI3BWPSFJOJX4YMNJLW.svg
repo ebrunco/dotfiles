@@ -1,0 +1,8 @@
+<svg viewBox="0 0 28 28" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path class="ClockIcon-AlarmBell" d="M5.053 5.053a3.536 3.536 0 0 0 0 5l5-5a3.536 3.536 0 0 0-5 0zm17.947 0a3.536 3.536 0 0 1 0 5l-5-5a3.536 3.536 0 0 1 5 0z"></path>
+  <circle class="ClockIcon-CountdownHour" cx="14" cy="14" r="4"></circle>
+  <circle class="ClockIcon-CountdownMinute" cx="14" cy="14" r="4"></circle>
+  <path class="ClockIcon-TimeMinute" d="M14.5 8.5s0-.5-.5-.5-.5.5-.5.5l-.5 5.357c0 .631.448 1.143 1 1.143s1-.512 1-1.143L14.5 8.5z"></path>
+  <path class="ClockIcon-TimeHour" d="M13 11v3a1 1 0 1 0 2 0v-3a1 1 0 1 0-2 0z"></path>
+  <circle cx="14" cy="14" r="7" stroke="currentColor" stroke-width="1.5" fill="none"></circle>
+</svg>

@@ -1,0 +1,6 @@
+<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+  <rect opacity="0.35" x="7" y="8" width="14" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+  <rect x="9" y="10" width="10" height="5" rx="0.5" style="opacity: var(--modeHorizontal, 1)"></rect>
+  <rect x="9" y="10" width="5" height="8" rx="0.5" style="opacity: var(--modeVertical, 0)"></rect>
+  <rect x="9" y="10" width="7" height="8" rx="0.5" style="opacity: var(--modeVerticalWide, 0)"></rect>
+</svg>
