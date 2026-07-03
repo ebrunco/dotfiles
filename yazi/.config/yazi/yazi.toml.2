@@ -1,0 +1,25 @@
+[opener]
+nvim = [
+    { run = "nvim %s", block = true, desc = "Neovim" }
+]
+
+firefox = [
+    { run = "firefox %s", orphan = true, desc = "Firefox" }
+]
+
+chromium = [
+    { run = "chromium %s", orphan = true, desc = "Chromium" }
+]
+
+code = [
+    { run = "code %s", orphan = true, desc = "VS Code" }
+]
+
+default = [
+    { run = "xdg-open %s", orphan = true, desc = "System default" }
+]
+
+[open]
+prepend_rules = [
+    { mime = "text/*", use = ["default", "firefox", "chromium", "nvim", "code"] },
+]

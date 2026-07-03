@@ -1,17 +1,19 @@
 [opener]
 edit = [
-    { run = 'nvim %s', block = true, desc = "Neovim", for = "unix" }
+    { run = 'nvim %s', block = true, desc = "Neovim", for = "unix" },
+    { run = 'code %s', block = true, desc = "VS Code", for = "unix" },
+    { run = 'libreoffice %s', orphan = true, desc = "libreoffice", for = "unix" },
+    { run = 'onlyoffice-desktopeditors %s', orphan = true, desc = "onlyoffice", for = "unix" },
 ]
-browser = [
-    { run = 'xdg-open %s', desc = "Browser", for = "unix" }
-]
+browser = [{ run = 'xdg-open %s', desc = "Browser", for = "unix" }]
 
 [open]
 prepend_rules = [
     # Force both the extension AND the exact mimetype to use the browser
     { url = "*.html", use = "browser" },
     { mime = "text/html", use = "browser" },
-    
+
+    { mime = "text/csv", use = "edit" },
     # Ensure other text files still use Vim
     { mime = "text/*", use = "edit" },
 ]
